@@ -37,7 +37,7 @@ La implementación proporciona una lista dinámica que puede crecer según sea n
 
 - Capacidad de crecimiento automático
 
-## Métodos Implementados
+## Métodos finales después de implementación
 ### Operaciones de Adición
 
     add(E e) - Agrega un elemento al final
