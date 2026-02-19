@@ -1,5 +1,10 @@
 package structures;
 
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
 public class SimpleLinkedList<V> implements List<V>{
     
     private Node<V> head;
@@ -8,23 +13,18 @@ public class SimpleLinkedList<V> implements List<V>{
         this.head = null;
     }
 
-    public void add(V e) {
+    public boolean add(V e) {
         Node<V> newNode = new Node<>(e);
         if (head == null) {
             head = newNode;
         } else {
             Node<V> current = head;
-            while (current.next != null) {
-                current = current.next;
+            while (current.getNext() != null) {
+                current = current.getNext();
             }
-            current.next = newNode;
+            current.setNext(newNode);
         }
-    }
-    
-    //Not implemented
-    @Override
-    public void add(int index, V element) {
-        
+        return true;
     }
     
     //Not implemented
@@ -131,7 +131,7 @@ public class SimpleLinkedList<V> implements List<V>{
     
     //Not implemented
     @Override
-    public V set(int index, E element) {
+    public V set(int index, V element) {
         return null;
     }
     
