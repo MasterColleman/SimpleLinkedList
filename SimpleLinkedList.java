@@ -87,10 +87,22 @@ public class SimpleLinkedList<V> implements List<V>{
         return null;
     }
     
-    //Not implemented
     @Override
     public int lastIndexOf(Object o) {
-        return -1;
+    int lastIndex = -1;
+    int currentIndex = 0;
+    Node<V> current = head;
+    while (current != null) {
+        if (o == null) {
+            if (current.getData() == null) {
+                lastIndex = currentIndex;
+            }
+        } else if (o.equals(current.getData())) {
+            lastIndex = currentIndex;
+        }
+        
+        current = current.getNext();
+        currentIndex++;
     }
     
     //Not implemented
