@@ -148,14 +148,14 @@ public class SimpleLinkedList<V> implements List<V>{
     }
     
     @Override
-    public V[] toArray() {
-    	int count = 0;
+    public Object[] toArray() {
+        int count = 0;
         Node<V> current = head;
         while (current != null) {
             count++;
             current = current.getNext();
         }
-        V[] array = (V[]) new Object[count];
+        Object[] array = new Object[count];
         current = head;
         for (int i = 0; i < count; i++) {
             array[i] = current.getData();
