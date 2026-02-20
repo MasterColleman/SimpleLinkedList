@@ -133,7 +133,7 @@ public class SimpleLinkedList<V> implements List<V>{
     // Not implemented
     @Override
     public boolean isEmpty() {
-        return false;
+        return head == null;
     }
 
     // Not implemented
