@@ -1,9 +1,5 @@
 package structures;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.ListIterator;
-
 import org.w3c.dom.Node;
 
 public class SimpleLinkedList<V> implements List<V>{
