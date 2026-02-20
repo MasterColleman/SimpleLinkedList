@@ -108,7 +108,32 @@ public class SimpleLinkedList<V> implements List<V>{
     //Not implemented
     @Override
     public V remove(int index) {
-        return null;
+        if (index < 0 || isEmpty()) {
+            return null;
+        }
+        
+        if (index == 0) {
+            V data = head.getData();
+            head = head.getNext();
+            return data;
+        }
+        Node<V> current = head;
+        int currentPosition = 0;
+        
+        while (current.getNext() != null && currentPosition < index - 1) {
+            current = current.getNext();
+            currentPosition++;
+        }
+        
+        if (current.getNext() == null) {
+            return null;
+        }
+        
+        V data = current.getNext().getData();
+        
+        current.setNext(current.getNext().getNext());
+        
+        return data;
     }
     
     //Not implemented
