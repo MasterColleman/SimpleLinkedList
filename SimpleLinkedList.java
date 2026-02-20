@@ -236,7 +236,28 @@ public class SimpleLinkedList<V> implements List<V>{
     // Not implemented
     @Override
     public boolean retainAll(Collection<?> c) {
-        return false;
+        if (head == null)
+            return false;
+        boolean modified = false;
+        while (head != null && !c.contains(head.data)) {
+            head = head.next;
+            modified = true;
+        }
+        if (head == null) {
+            return modified;
+        }
+        Node<V> current = head.next;
+        Node<V> prev = head;
+        while (current != null) {
+            if (!c.contains(current.data)) {
+                prev.next = current.next;
+                modified = true;
+            } else {
+                prev = current;
+            }
+            current = current.next;
+        }
+        return modified;
     }
     
     @Override
@@ -325,5 +346,5 @@ public class SimpleLinkedList<V> implements List<V>{
         }
         return a;
     }
-    
+
 }
