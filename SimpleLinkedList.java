@@ -1,7 +1,5 @@
 package structures;
 
-import org.w3c.dom.Node;
-
 public class SimpleLinkedList<V> implements List<V>{
     
     private Node<V> head;
