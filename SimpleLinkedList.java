@@ -266,11 +266,22 @@ public class SimpleLinkedList<V> implements List<V>{
 
         return list;
     }
-
-    // Not implemented
+    
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        int count = 0;
+        Node<V> current = head;
+        while (current != null) {
+            count++;
+            current = current.getNext();
+        }
+        Object[] array = new Object[count];
+        current = head;
+        for (int i = 0; i < count; i++) {
+            array[i] = current.getData();
+            current = current.getNext();
+        }
+        return array;
     }
 
     // Not implemented
