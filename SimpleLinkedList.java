@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.ListIterator;
 
+import org.w3c.dom.Node;
+
 public class SimpleLinkedList<V> implements List<V>{
     
     private Node<V> head;
@@ -159,7 +161,6 @@ public class SimpleLinkedList<V> implements List<V>{
             public boolean hasNext() {
                 return aux != null;
             }
-
             @Override
             public V next() {
                 V value = aux.getValue();
