@@ -104,11 +104,40 @@ public class SimpleLinkedList<V> implements List<V>{
         return true;
     }
 
-    // Not implemented
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        if (o instanceof SimpleLinkedListS) {
+            SimpleLinkedListS<?> that = (SimpleLinkedListS<?>) o;
+            if (this.size() != that.size()) return false;
+            for (int i = 0; i < this.size(); i++) {
+                V thisElem = this.get(i);
+                Object thatElem = that.get(i);
+                if (thisElem == null) {
+                    if (thatElem != null) return false;
+                } else {
+                    if (!thisElem.equals(thatElem)) return false;
+                }
+            }
+            return true;
+        }
+        if (o instanceof List) {
+            List<?> thatList = (List<?>) o;
+            if (this.size() != thatList.size()) return false;
+            for (int i = 0; i < this.size(); i++) {
+                V thisElem = this.get(i);
+                Object thatElem = thatList.get(i);
+                if (thisElem == null) {
+                    if (thatElem != null) return false;
+                } else {
+                    if (!thisElem.equals(thatElem)) return false;
+                }
+            }
+            return true;
+        }
         return false;
-    }    
+    }
 
     @Override
     public V get(int index){
