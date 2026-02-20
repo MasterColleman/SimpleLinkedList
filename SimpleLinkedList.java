@@ -1,5 +1,10 @@
 package structures;
 
+import java.util.List;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.ListIterator;
+
 public class SimpleLinkedList<V> implements List<V>{
     
     private Node<V> head;
@@ -8,7 +13,8 @@ public class SimpleLinkedList<V> implements List<V>{
         this.head = null;
     }
 
-    public void add(V e) {
+    @Override
+    public boolean add(V e) {
         Node<V> newNode = new Node<>(e);
         if (head == null) {
             head = newNode;
@@ -19,6 +25,7 @@ public class SimpleLinkedList<V> implements List<V>{
             }
             current.next = newNode;
         }
+        return true;
     }
     
     //Not implemented
@@ -129,10 +136,18 @@ public class SimpleLinkedList<V> implements List<V>{
         return false;
     }
     
-    //Not implemented
     @Override
-    public V set(int index, E element) {
-        return null;
+    public V set(int index, V element) {
+        if (index < 0 || index >= size()) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size());
+        }
+        Node<V> current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        V oldValue = current.value;
+        current.value = element;
+        return oldValue;
     }
     
     //Not implemented
