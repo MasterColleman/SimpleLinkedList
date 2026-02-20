@@ -1,5 +1,11 @@
 package structures;
 
+import java.util.Collection;
+import java.util.List;
+import java.util.ListIterator;
+
+import org.w3c.dom.Node;
+
 public class SimpleLinkedList<V> implements List<V>{
     
     private Node<V> head;
@@ -93,10 +99,32 @@ public class SimpleLinkedList<V> implements List<V>{
         return -1;
     }
     
-    //Not implemented
     @Override
     public ListIterator<V> listIterator() {
-        return null;
+        ListIterator<V> listIterator = new ListIterator<V>() {
+            Node<V> prevNode= head;
+            node<V> nextNode = auxNode.getNext();
+            int nextIndex =0;
+
+            public boolean hasNext(){
+                return auxNode!= null;
+            }
+
+            public V next(){
+                V value = prevNode.getValue();
+                prevNode = prevNode.getNext();
+                nextIndex++;
+                return value;   
+
+            }
+
+            public int nextIndex(){
+                return nextIndex;
+            }
+
+        };
+
+        return listIterator;
     }
     
     //Not implemented
