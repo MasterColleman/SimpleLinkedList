@@ -152,7 +152,23 @@ public class SimpleLinkedList<V> implements List<V>{
     // Not implemented
     @Override
     public Iterator<V> iterator() {
-        return null;
+        Iterator<V> iter = new Iterator<V>() {
+            Node<V> aux = head;
+
+            @Override
+            public boolean hasNext() {
+                return aux != null;
+            }
+
+            @Override
+            public V next() {
+                V value = aux.getValue();
+                aux = aux.getNext();
+                return value;
+            }
+
+        };
+        return iter;
     }
     
     @Override
