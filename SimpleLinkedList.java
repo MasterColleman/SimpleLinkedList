@@ -143,10 +143,10 @@ public class SimpleLinkedList<V> implements List<V>{
         }
         Node<V> current = head;
         for (int i = 0; i < index; i++) {
-            current = current.next;
+            current = current.getNext();
         }
-        V oldValue = current.value;
-        current.value = element;
+        V oldValue = current.getData();
+        current.setData(element);
         return oldValue;
     }
     
